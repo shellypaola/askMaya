@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Ask Maya</title>
+
+<style>
+
+body{
+    font-family: Georgia, serif;
+    background: linear-gradient(#f7f4ef, #efe7dc);
+    text-align:center;
+    padding-top:80px;
+    color:#333;
+}
+
+h1{
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    font-size:18px;
+    color:#666;
+    margin-bottom:30px;
+}
+
+.maya{
+    width:220px;
+    margin:20px auto;
+    display:block;
+    filter: drop-shadow(0px 10px 25px rgba(0,0,0,0.15));
+}
+
+button{
+    padding:16px 28px;
+    font-size:18px;
+    border:none;
+    border-radius:10px;
+    background:#e8b4b8;
+    color:white;
+    cursor:pointer;
+    transition:all 0.2s;
+}
+
+button:hover{
+    background:#e39aa0;
+    transform:scale(1.05);
+}
+
+#wisdom{
+    margin-top:40px;
+    font-size:26px;
+    max-width:520px;
+    margin-left:auto;
+    margin-right:auto;
+    font-style:italic;
+    opacity:0;
+    transition:opacity 0.6s;
+}
+
+.tribute{
+    margin-top:80px;
+    font-size:14px;
+    color:#888;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>🐾 Ask Maya</h1>
+
+<img src="maya.png" class="maya">
+
+<p class="subtitle">A small piece of wisdom from a very wise cat.</p>
+
+<button onclick="askMaya()">Ask Maya</button>
+
+<div id="wisdom"></div>
+
+<p class="tribute">Inspired by Maya, a very wise cat.</p>
+
+<script>
+
+const wisdom = [
+
+"Not everything needs chasing.",
+"Sit in the sun for a while.",
+"Rest first. Decide later.",
+"Curiosity makes the day interesting.",
+"Drink water. Stretch a little.",
+"A quiet moment solves many things.",
+"Find the warmest spot and stay there.",
+"You don’t need to fix everything today.",
+"Sometimes ignoring the problem is wisdom.",
+"Take life one paw at a time.",
+"The world can wait while you nap.",
+"Look out the window for a bit.",
+"Slow down. You are allowed to.",
+"A soft place and a deep breath help.",
+"Eat something good.",
+"Peace often arrives quietly.",
+"A small step is still progress.",
+"The sun always returns.",
+"Today is a good day for a nap.",
+"Listen before reacting.",
+"Comfort matters.",
+"Pause. Breathe. Continue.",
+"Kindness is rarely wasted.",
+"Stretch slowly.",
+"Find something interesting to watch.",
+"You are doing enough today.",
+"Quiet moments are important.",
+"Curiosity keeps life playful.",
+"Warmth heals many things.",
+"Rest is not laziness."
+
+];
+
+function askMaya(){
+
+    const random = wisdom[Math.floor(Math.random() * wisdom.length)];
+    
+    const wisdomBox = document.getElementById("wisdom");
+    
+    wisdomBox.style.opacity = 0;
+
+    setTimeout(() => {
+        wisdomBox.innerText = '"' + random + '"';
+        wisdomBox.style.opacity = 1;
+    },200);
+
+}
+
+</script>
+
+</body>
+</html>
