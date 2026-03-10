@@ -191,41 +191,26 @@
       }, 2500);
     }
 
-    function blinkMaya() {
-      const maya = document.getElementById("maya");
-      maya.classList.add("blink");
-      setTimeout(() => {
-        maya.classList.remove("blink");
-      }, 250);
-    }
 
-    function playPurr() {
-      const purr = document.getElementById("purrSound");
-      if (!purr) return;
-
-      purr.currentTime = 0;
-      purr.play().catch(() => {
-        // Some browsers may block autoplay-like audio behavior
-        // until direct interaction; button click usually allows it.
-      });
-    }
-
-    function askMaya() {
+    function askMaya(){
+  
       const random = wisdom[Math.floor(Math.random() * wisdom.length)];
-      currentWisdom = random;
-
+      
       const wisdomBox = document.getElementById("wisdom");
-      wisdomBox.style.opacity = 0;
-
-      blinkMaya();
-      playPurr();
-
+  
+      wisdomBox.style.opacity = 1;
+      wisdomBox.innerText = "Maya is thinking...";
+  
       setTimeout(() => {
-        wisdomBox.innerText = '"' + random + '"';
-        wisdomBox.style.opacity = 1;
-      }, 200);
-    }
-
+          wisdomBox.style.opacity = 0;
+      },500);
+  
+      setTimeout(() => {
+          wisdomBox.innerText = '"' + random + '"';
+          wisdomBox.style.opacity = 1;
+      },1000);
+  
+  }
     async function sharePage() {
       const shareData = {
         title: "Ask Maya",
