@@ -10,7 +10,7 @@
       font-family: Georgia, serif;
       background: linear-gradient(#f7f4ef, #efe7dc);
       text-align: center;
-      padding: 60px 20px 40px;
+      padding: 60px 20px 30px;
       color: #333;
       margin: 0;
     }
@@ -101,19 +101,17 @@
     }
 
     .note {
-      margin-top: 18px;
+      margin-top: 14px;
       font-size: 14px;
       color: #7a7a7a;
       min-height: 20px;
     }
 
-    .tribute {
-      margin-top: 80px;
-      font-size: 14px;
-      color: #888;
-    }
-
     @media (max-width: 600px) {
+      body {
+        padding: 40px 16px 24px;
+      }
+
       h1 {
         font-size: 34px;
       }
@@ -133,6 +131,10 @@
       button {
         width: 100%;
         max-width: 280px;
+      }
+
+      #wisdom {
+        min-height: 140px;
       }
     }
   </style>
@@ -157,8 +159,6 @@
     </div>
 
     <div class="note" id="note"></div>
-
-    <p class="tribute">Inspired by Maya, a very wise cat.</p>
   </div>
 
   <script>
@@ -483,28 +483,6 @@
           wisdomBox.scrollIntoView({ behavior: "smooth", block: "center" });
         }, 100);
       }, 200);
-    }
-
-    async function sharePage() {
-      const shareData = {
-        title: "Ask Maya",
-        text: "A small piece of wisdom from a very wise cat.",
-        url: window.location.href
-      };
-
-      if (navigator.share) {
-        try {
-          await navigator.share(shareData);
-        } catch (err) {
-        }
-      } else {
-        try {
-          await navigator.clipboard.writeText(window.location.href);
-          setNote("Page link copied.");
-        } catch (err) {
-          setNote("Could not copy the page link.");
-        }
-      }
     }
 
     async function shareWisdom() {
