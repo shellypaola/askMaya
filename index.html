@@ -149,15 +149,14 @@
     <div class="buttons">
       <button onclick="askMaya()">Ask Maya</button>
     </div>
-    
+
     <div id="wisdom"></div>
-    
+
     <div class="buttons" id="shareButtons" style="display:none;">
       <button onclick="shareWisdom()">Share Wisdom</button>
       <button onclick="sharePage()">Share Page</button>
     </div>
 
-    <div id="wisdom"></div>
     <div class="note" id="note"></div>
 
     <p class="tribute">Inspired by Maya, a very wise cat.</p>
@@ -329,122 +328,98 @@
         line: "If the lap is comfortable, stay a while.",
         reflection: "Some moments are meant to be enjoyed slowly."
       },
-      
       {
         line: "Arrive quietly and sit beside someone you love.",
         reflection: "Sometimes presence is all that is needed."
       },
-      
       {
         line: "If something feels wrong, leave the room.",
         reflection: "You are allowed to choose better spaces."
       },
-      
       {
         line: "Stretch before important decisions.",
         reflection: "A relaxed body often leads to clearer thoughts."
       },
-      
       {
         line: "Return to the places that welcome you.",
         reflection: "Comfort is a form of wisdom."
       },
-      
       {
         line: "Do not rush a good nap.",
         reflection: "Rest is one of life's most useful skills."
       },
-      
       {
         line: "Sit somewhere high and observe.",
         reflection: "Perspective improves understanding."
       },
-      
       {
         line: "If something interests you, investigate gently.",
         reflection: "Curiosity makes the world larger."
       },
-      
       {
         line: "If affection is offered, accept it gracefully.",
         reflection: "Being loved is not something to resist."
       },
-      
       {
         line: "Walk away from things that do not suit you.",
         reflection: "Not every bowl deserves your attention."
       },
-      
       {
         line: "A warm blanket solves many problems.",
         reflection: "Comfort creates space for calm thinking."
       },
-      
       {
         line: "Some days are for adventure.",
         reflection: "Other days are perfectly suited for sleeping."
       },
-      
       {
         line: "Patience can move mountains.",
         reflection: "It can also convince humans to open bedroom doors."
       },
-      
       {
         line: "Take your time deciding.",
         reflection: "The world rarely improves when rushed."
       },
-      
       {
         line: "If the sun appears, go and sit in it.",
         reflection: "Warmth is a gift that should not be ignored."
       },
-      
       {
         line: "Sometimes the best plan is doing nothing.",
         reflection: "Stillness often reveals the answer."
       },
-      
       {
         line: "When curiosity calls, follow it.",
         reflection: "Even if it leads to slightly questionable rooftops."
       },
-      
       {
         line: "Do not explain every mood.",
         reflection: "Those who know you will understand the tail flick."
       },
-      
       {
         line: "If something falls, pretend it was intentional.",
         reflection: "Dignity is important."
       },
-      
       {
         line: "Choose comfort whenever possible.",
         reflection: "Life is already complicated enough."
       },
-      
       {
         line: "A quiet window can teach many things.",
         reflection: "Observation is a form of intelligence."
       },
-      
       {
         line: "Return often to those who care for you.",
         reflection: "Love is a place you can visit again and again."
       },
-      
       {
         line: "Accept admiration with confidence.",
         reflection: "You are probably magnificent."
       },
-      
       {
         line: "Enjoy small moments completely.",
         reflection: "They are what make a life feel full."
       },
-      
       {
         line: "If the day feels strange, take a nap and try again later.",
         reflection: "This strategy works surprisingly often."
@@ -452,6 +427,21 @@
     ];
 
     let currentWisdom = "";
+    let shuffledWisdom = [];
+    let wisdomIndex = 0;
+
+    function shuffleWisdom() {
+      shuffledWisdom = [...wisdom];
+
+      for (let i = shuffledWisdom.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffledWisdom[i], shuffledWisdom[j]] = [shuffledWisdom[j], shuffledWisdom[i]];
+      }
+
+      wisdomIndex = 0;
+    }
+
+    shuffleWisdom();
 
     function setNote(message) {
       const note = document.getElementById("note");
@@ -465,11 +455,20 @@
     }
 
     function askMaya() {
-      const random = wisdom[Math.floor(Math.random() * wisdom.length)];
+      if (wisdomIndex >= shuffledWisdom.length) {
+        shuffleWisdom();
+      }
+
+      const random = shuffledWisdom[wisdomIndex];
+      wisdomIndex++;
+
       currentWisdom = `${random.line} ${random.reflection}`;
 
       const wisdomBox = document.getElementById("wisdom");
+      const shareButtons = document.getElementById("shareButtons");
+
       wisdomBox.style.opacity = 0;
+      shareButtons.style.display = "none";
 
       setTimeout(() => {
         wisdomBox.innerHTML = `
@@ -477,7 +476,13 @@
           <div class="maya-reflection">${random.reflection}</div>
           <div class="maya-signoff">— Maya 🐾</div>
         `;
+
         wisdomBox.style.opacity = 1;
+        shareButtons.style.display = "flex";
+
+        setTimeout(() => {
+          wisdomBox.scrollIntoView({ behavior: "smooth", block: "center" });
+        }, 100);
       }, 200);
     }
 
@@ -491,7 +496,8 @@
       if (navigator.share) {
         try {
           await navigator.share(shareData);
-        } catch (err) {}
+        } catch (err) {
+        }
       } else {
         try {
           await navigator.clipboard.writeText(window.location.href);
@@ -517,10 +523,11 @@
             text: message,
             url: window.location.href
           });
-        } catch (err) {}
+        } catch (err) {
+        }
       } else {
         try {
-          await navigator.clipboard.writeText(message + " " + window.location.href);
+          await navigator.clipboard.writeText(`${message} ${window.location.href}`);
           setNote("Wisdom copied.");
         } catch (err) {
           setNote("Could not copy the wisdom.");
