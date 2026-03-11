@@ -1,522 +1,392 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ask Maya</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ask Maya</title>
 
-  <style>
-    body {
-      font-family: Georgia, serif;
-      background: linear-gradient(#f7f4ef, #efe7dc);
-      text-align: center;
-      padding: 60px 20px 30px;
-      color: #333;
-      margin: 0;
-    }
+<style>
+body{
+font-family:Georgia,serif;
+background:linear-gradient(#f7f4ef,#efe7dc);
+text-align:center;
+padding:60px 20px 30px;
+color:#333;
+margin:0;
+}
 
-    .container {
-      max-width: 720px;
-      margin: 0 auto;
-    }
+.container{
+max-width:720px;
+margin:0 auto;
+}
 
-    h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
-    }
+h1{
+font-size:42px;
+margin-bottom:10px;
+}
 
-    .subtitle {
-      font-size: 18px;
-      color: #666;
-      margin-bottom: 30px;
-    }
+.subtitle{
+font-size:18px;
+color:#666;
+margin-bottom:30px;
+}
 
-    .maya {
-      width: 220px;
-      margin: 20px auto;
-      display: block;
-      filter: drop-shadow(0px 10px 25px rgba(0,0,0,0.15));
-      animation: floatMaya 6s ease-in-out infinite;
-    }
+.maya{
+width:220px;
+margin:20px auto;
+display:block;
+filter:drop-shadow(0px 10px 25px rgba(0,0,0,0.15));
+animation:floatMaya 6s ease-in-out infinite;
+}
 
-    @keyframes floatMaya {
-      0%   { transform: translateY(0px); }
-      50%  { transform: translateY(-6px); }
-      100% { transform: translateY(0px); }
-    }
+@keyframes floatMaya{
+0%{transform:translateY(0px);}
+50%{transform:translateY(-6px);}
+100%{transform:translateY(0px);}
+}
 
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      margin-top: 10px;
-    }
+.buttons{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:12px;
+margin-top:10px;
+}
 
-    button {
-      padding: 14px 22px;
-      font-size: 17px;
-      border: none;
-      border-radius: 12px;
-      background: #e8b4b8;
-      color: white;
-      cursor: pointer;
-      transition: all 0.2s;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-    }
+button{
+padding:14px 22px;
+font-size:17px;
+border:none;
+border-radius:12px;
+background:#e8b4b8;
+color:white;
+cursor:pointer;
+transition:all 0.2s;
+box-shadow:0 6px 18px rgba(0,0,0,0.08);
+}
 
-    button:hover {
-      background: #e39aa0;
-      transform: scale(1.04);
-    }
+button:hover{
+background:#e39aa0;
+transform:scale(1.04);
+}
 
-    #wisdom {
-      margin-top: 40px;
-      max-width: 560px;
-      margin-left: auto;
-      margin-right: auto;
-      opacity: 0;
-      transition: opacity 0.6s;
-      min-height: 160px;
-      padding: 0 10px;
-    }
+#wisdom{
+margin-top:40px;
+max-width:560px;
+margin-left:auto;
+margin-right:auto;
+opacity:0;
+transition:opacity 0.6s;
+min-height:160px;
+padding:0 10px;
+}
 
-    .maya-line {
-      font-size: 30px;
-      line-height: 1.4;
-      margin-bottom: 14px;
-    }
+.maya-line{
+font-size:30px;
+line-height:1.4;
+margin-bottom:14px;
+}
 
-    .maya-reflection {
-      font-size: 21px;
-      line-height: 1.5;
-      color: #666;
-      font-style: italic;
-      margin-bottom: 16px;
-    }
+.maya-reflection{
+font-size:21px;
+line-height:1.5;
+color:#666;
+font-style:italic;
+margin-bottom:16px;
+}
 
-    .maya-signoff {
-      font-size: 18px;
-      color: #888;
-    }
+.maya-signoff{
+font-size:18px;
+color:#888;
+}
 
-    .note {
-      margin-top: 14px;
-      font-size: 14px;
-      color: #7a7a7a;
-      min-height: 20px;
-    }
+.note{
+margin-top:14px;
+font-size:14px;
+color:#7a7a7a;
+min-height:20px;
+}
 
-    @media (max-width: 600px) {
-      body {
-        padding: 40px 16px 24px;
-      }
+@media (max-width:600px){
 
-      h1 {
-        font-size: 34px;
-      }
+body{
+padding:40px 16px 24px;
+}
 
-      .maya {
-        width: 180px;
-      }
+h1{
+font-size:34px;
+}
 
-      .maya-line {
-        font-size: 26px;
-      }
+.maya{
+width:180px;
+}
 
-      .maya-reflection {
-        font-size: 19px;
-      }
+.maya-line{
+font-size:26px;
+}
 
-      button {
-        width: 100%;
-        max-width: 280px;
-      }
+.maya-reflection{
+font-size:19px;
+}
 
-      #wisdom {
-        min-height: 140px;
-      }
-    }
-  </style>
+button{
+width:100%;
+max-width:280px;
+}
+
+#wisdom{
+min-height:140px;
+}
+
+}
+</style>
 </head>
+
 <body>
 
-  <div class="container">
-    <h1>🐾 Ask Maya</h1>
+<div class="container">
 
-    <img src="maya.png" class="maya" alt="Cartoon of Maya the cat">
+<h1>🐾 Ask Maya</h1>
 
-    <p class="subtitle">A small piece of wisdom from a very wise cat.</p>
+<img src="maya.png" class="maya" alt="Cartoon of Maya the cat">
 
-    <div class="buttons">
-      <button onclick="askMaya()">Ask Maya</button>
-    </div>
+<p class="subtitle">A small piece of wisdom from a very wise cat.</p>
 
-    <div id="wisdom"></div>
+<div class="buttons">
+<button onclick="askMaya()">Ask Maya</button>
+</div>
 
-    <div class="buttons" id="shareButtons" style="display:none;">
-      <button onclick="shareWisdom()">Share Wisdom</button>
-    </div>
+<div id="wisdom"></div>
 
-    <div class="note" id="note"></div>
-  </div>
+<div class="buttons" id="shareButtons" style="display:none;">
+<button onclick="shareWisdom()">Share Wisdom</button>
+</div>
 
-  <script>
-    const wisdom = [
-      {
-        line: "Not everything needs chasing.",
-        reflection: "Sometimes the best strategy is sitting still and letting it come to you… like a lap."
-      },
-      {
-        line: "If you want something badly enough, return again tomorrow.",
-        reflection: "Humans are slow learners but eventually they understand."
-      },
-      {
-        line: "Choose your food carefully.",
-        reflection: "Life is too short to eat something you already know you dislike."
-      },
-      {
-        line: "When the moment feels right, jump.",
-        reflection: "Worry about how to get down later."
-      },
-      {
-        line: "A good lap is worth waiting for.",
-        reflection: "Especially if it is warm and slightly trapped under a blanket."
-      },
-      {
-        line: "Sleep wherever you feel comfortable.",
-        reflection: "If it happens to be someone else's pillow, that is their good fortune."
-      },
-      {
-        line: "Watch the world quietly sometimes.",
-        reflection: "It helps you understand which things are worth knocking off the table."
-      },
-      {
-        line: "Ask for affection confidently.",
-        reflection: "If they hesitate, stare at them until they remember their duties."
-      },
-      {
-        line: "If you fall from somewhere high, walk away calmly.",
-        reflection: "Dignity is more important than explanations."
-      },
-      {
-        line: "Rest often.",
-        reflection: "A tired cat cannot properly supervise the household."
-      },
-      {
-        line: "Enjoy the sun whenever it appears.",
-        reflection: "Important philosophical thoughts happen in warm spots."
-      },
-      {
-        line: "If something interesting happens outside the window, investigate immediately.",
-        reflection: "If nothing happens, keep watching just in case."
-      },
-      {
-        line: "Sometimes you must sit directly on the keyboard.",
-        reflection: "This is how important messages are delivered."
-      },
-      {
-        line: "If the door is closed, request that it be opened.",
-        reflection: "If the door is opened, reconsider your plans."
-      },
-      {
-        line: "Accept love generously.",
-        reflection: "Humans feel very proud when they are allowed to pet a cat."
-      },
-      {
-        line: "Sit in the warm spot.",
-        reflection: "Cold thinking rarely solves anything."
-      },
-      {
-        line: "If you want attention, walk slowly across the keyboard.",
-        reflection: "Important conversations will pause for you."
-      },
-      {
-        line: "Humans think they choose the cat.",
-        reflection: "Cats know better."
-      },
-      {
-        line: "If you are unsure what to do, take a nap.",
-        reflection: "Most problems look different afterwards."
-      },
-      {
-        line: "Sometimes you must sit directly on the thing someone is using.",
-        reflection: "This is called participation."
-      },
-      {
-        line: "Investigate every rustling sound.",
-        reflection: "Curiosity keeps life interesting."
-      },
-      {
-        line: "If someone opens the door for you, pause.",
-        reflection: "It is important they understand you are still deciding."
-      },
-      {
-        line: "A soft blanket improves almost any situation.",
-        reflection: "This is simply one of life's deeper truths."
-      },
-      {
-        line: "If you cannot reach the top in one jump, try again later.",
-        reflection: "Confidence should never be rushed."
-      },
-      {
-        line: "Observe quietly before acting.",
-        reflection: "A wise cat gathers information."
-      },
-      {
-        line: "Never rush a good stretch.",
-        reflection: "Even important cats must prepare."
-      },
-      {
-        line: "Some days are for adventure.",
-        reflection: "Other days are for watching birds through the window."
-      },
-      {
-        line: "If the food is not acceptable, walk away with dignity.",
-        reflection: "Standards are a form of self-respect."
-      },
-      {
-        line: "Humans often worry too much.",
-        reflection: "Try sitting in the sun instead."
-      },
-      {
-        line: "When you find a perfect lap, stay there as long as possible.",
-        reflection: "Warmth is meant to be enjoyed."
-      },
-      {
-        line: "You do not need to greet everyone.",
-        reflection: "True elegance includes selective attention."
-      },
-      {
-        line: "If something falls off the table, it was probably meant to.",
-        reflection: "You were only helping gravity do its work."
-      },
-      {
-        line: "Take pride in small comforts.",
-        reflection: "A good nap is a meaningful achievement."
-      },
-      {
-        line: "If you feel playful, run suddenly through the house.",
-        reflection: "Joy should never be scheduled."
-      },
-      {
-        line: "Patience works wonders.",
-        reflection: "Even beds that once said 'no cats' eventually change their minds."
-      },
-      {
-        line: "Sometimes the best view is from the highest place you can reach.",
-        reflection: "Adventure often begins one questionable jump at a time."
-      },
-      {
-        line: "When affection is offered, accept it with grace.",
-        reflection: "Humans appreciate feeling useful."
-      },
-      {
-        line: "Every day deserves at least one moment of mischief.",
-        reflection: "A noble life should still have some fun in it."
-      },
-      {
-        line: "Sit beside someone you love.",
-        reflection: "You do not always need to sit on them."
-      },
-      {
-        line: "Life is better when you enjoy it completely.",
-        reflection: "Even if that means climbing somewhere you were not supposed to."
-      },
-      {
-        line: "If the lap is comfortable, stay a while.",
-        reflection: "Some moments are meant to be enjoyed slowly."
-      },
-      {
-        line: "Arrive quietly and sit beside someone you love.",
-        reflection: "Sometimes presence is all that is needed."
-      },
-      {
-        line: "If something feels wrong, leave the room.",
-        reflection: "You are allowed to choose better spaces."
-      },
-      {
-        line: "Stretch before important decisions.",
-        reflection: "A relaxed body often leads to clearer thoughts."
-      },
-      {
-        line: "Return to the places that welcome you.",
-        reflection: "Comfort is a form of wisdom."
-      },
-      {
-        line: "Do not rush a good nap.",
-        reflection: "Rest is one of life's most useful skills."
-      },
-      {
-        line: "Sit somewhere high and observe.",
-        reflection: "Perspective improves understanding."
-      },
-      {
-        line: "If something interests you, investigate gently.",
-        reflection: "Curiosity makes the world larger."
-      },
-      {
-        line: "If affection is offered, accept it gracefully.",
-        reflection: "Being loved is not something to resist."
-      },
-      {
-        line: "Walk away from things that do not suit you.",
-        reflection: "Not every bowl deserves your attention."
-      },
-      {
-        line: "A warm blanket solves many problems.",
-        reflection: "Comfort creates space for calm thinking."
-      },
-      {
-        line: "Some days are for adventure.",
-        reflection: "Other days are perfectly suited for sleeping."
-      },
-      {
-        line: "Patience can move mountains.",
-        reflection: "It can also convince humans to open bedroom doors."
-      },
-      {
-        line: "Take your time deciding.",
-        reflection: "The world rarely improves when rushed."
-      },
-      {
-        line: "If the sun appears, go and sit in it.",
-        reflection: "Warmth is a gift that should not be ignored."
-      },
-      {
-        line: "Sometimes the best plan is doing nothing.",
-        reflection: "Stillness often reveals the answer."
-      },
-      {
-        line: "When curiosity calls, follow it.",
-        reflection: "Even if it leads to slightly questionable rooftops."
-      },
-      {
-        line: "Do not explain every mood.",
-        reflection: "Those who know you will understand the tail flick."
-      },
-      {
-        line: "If something falls, pretend it was intentional.",
-        reflection: "Dignity is important."
-      },
-      {
-        line: "Choose comfort whenever possible.",
-        reflection: "Life is already complicated enough."
-      },
-      {
-        line: "A quiet window can teach many things.",
-        reflection: "Observation is a form of intelligence."
-      },
-      {
-        line: "Return often to those who care for you.",
-        reflection: "Love is a place you can visit again and again."
-      },
-      {
-        line: "Accept admiration with confidence.",
-        reflection: "You are probably magnificent."
-      },
-      {
-        line: "Enjoy small moments completely.",
-        reflection: "They are what make a life feel full."
-      },
-      {
-        line: "If the day feels strange, take a nap and try again later.",
-        reflection: "This strategy works surprisingly often."
-      }
-    ];
+<div class="note" id="note"></div>
 
-    let currentWisdom = "";
-    let shuffledWisdom = [];
-    let wisdomIndex = 0;
+</div>
 
-    function shuffleWisdom() {
-      shuffledWisdom = [...wisdom];
+<script>
 
-      for (let i = shuffledWisdom.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [shuffledWisdom[i], shuffledWisdom[j]] = [shuffledWisdom[j], shuffledWisdom[i]];
-      }
+const wisdom = [
+{
+line:"Not everything needs chasing.",
+reflection:"Sometimes the best strategy is sitting still and letting it come to you… like a lap."
+},
+{
+line:"If you want something badly enough, return again tomorrow.",
+reflection:"Humans are slow learners but eventually they understand."
+},
+{
+line:"Choose your food carefully.",
+reflection:"Life is too short to eat something you already know you dislike."
+},
+{
+line:"When the moment feels right, jump.",
+reflection:"Worry about how to get down later."
+},
+{
+line:"A good lap is worth waiting for.",
+reflection:"Especially if it is warm and slightly trapped under a blanket."
+},
+{
+line:"Sleep wherever you feel comfortable.",
+reflection:"If it happens to be someone else's pillow, that is their good fortune."
+},
+{
+line:"Watch the world quietly sometimes.",
+reflection:"It helps you understand which things are worth knocking off the table."
+},
+{
+line:"Ask for affection confidently.",
+reflection:"If they hesitate, stare at them until they remember their duties."
+},
+{
+line:"If you fall from somewhere high, walk away calmly.",
+reflection:"Dignity is more important than explanations."
+},
+{
+line:"Rest often.",
+reflection:"A tired cat cannot properly supervise the household."
+},
+{
+line:"Enjoy the sun whenever it appears.",
+reflection:"Important philosophical thoughts happen in warm spots."
+},
+{
+line:"Sometimes you must sit directly on the keyboard.",
+reflection:"This is how important messages are delivered."
+},
+{
+line:"If the door is closed, request that it be opened.",
+reflection:"If the door is opened, reconsider your plans."
+},
+{
+line:"Accept love generously.",
+reflection:"Humans feel very proud when they are allowed to pet a cat."
+},
+{
+line:"Sit in the warm spot.",
+reflection:"Cold thinking rarely solves anything."
+},
+{
+line:"If you want attention, walk slowly across the keyboard.",
+reflection:"Important conversations will pause for you."
+},
+{
+line:"Humans think they choose the cat.",
+reflection:"Cats know better."
+},
+{
+line:"If you are unsure what to do, take a nap.",
+reflection:"Most problems look different afterwards."
+},
+{
+line:"A soft blanket improves almost any situation.",
+reflection:"This is simply one of life's deeper truths."
+},
+{
+line:"Observe quietly before acting.",
+reflection:"A wise cat gathers information."
+},
+{
+line:"Never rush a good stretch.",
+reflection:"Even important cats must prepare."
+},
+{
+line:"If the food is not acceptable, walk away with dignity.",
+reflection:"Standards are a form of self-respect."
+},
+{
+line:"Humans often worry too much.",
+reflection:"Try sitting in the sun instead."
+},
+{
+line:"Take pride in small comforts.",
+reflection:"A good nap is a meaningful achievement."
+},
+{
+line:"Patience works wonders.",
+reflection:"Even beds that once said 'no cats' eventually change their minds."
+},
+{
+line:"Sit beside someone you love.",
+reflection:"You do not always need to sit on them."
+},
+{
+line:"If the lap is comfortable, stay a while.",
+reflection:"Some moments are meant to be enjoyed slowly."
+},
+{
+line:"Return to the places that welcome you.",
+reflection:"Comfort is a form of wisdom."
+},
+{
+line:"A quiet window can teach many things.",
+reflection:"Observation is a form of intelligence."
+},
+{
+line:"Enjoy small moments completely.",
+reflection:"They are what make a life feel full."
+}
+];
 
-      wisdomIndex = 0;
-    }
+let currentWisdom="";
+let shuffledWisdom=[];
+let wisdomIndex=0;
 
-    shuffleWisdom();
+function shuffleWisdom(){
 
-    function setNote(message) {
-      const note = document.getElementById("note");
-      note.innerText = message;
+shuffledWisdom=[...wisdom];
 
-      setTimeout(() => {
-        if (note.innerText === message) {
-          note.innerText = "";
-        }
-      }, 2500);
-    }
+for(let i=shuffledWisdom.length-1;i>0;i--){
+const j=Math.floor(Math.random()*(i+1));
+[shuffledWisdom[i],shuffledWisdom[j]]=[shuffledWisdom[j],shuffledWisdom[i]];
+}
 
-    function askMaya() {
-      if (wisdomIndex >= shuffledWisdom.length) {
-        shuffleWisdom();
-      }
+wisdomIndex=0;
 
-      const random = shuffledWisdom[wisdomIndex];
-      wisdomIndex++;
+}
 
-      currentWisdom = `${random.line} ${random.reflection}`;
+shuffleWisdom();
 
-      const wisdomBox = document.getElementById("wisdom");
-      const shareButtons = document.getElementById("shareButtons");
+function setNote(message){
 
-      wisdomBox.style.opacity = 0;
-      shareButtons.style.display = "none";
+const note=document.getElementById("note");
+note.innerText=message;
 
-      setTimeout(() => {
-        wisdomBox.innerHTML = `
-          <div class="maya-line">${random.line}</div>
-          <div class="maya-reflection">${random.reflection}</div>
-          <div class="maya-signoff">— Maya 🐾</div>
-        `;
+setTimeout(()=>{
+if(note.innerText===message){
+note.innerText="";
+}
+},2500);
 
-        wisdomBox.style.opacity = 1;
-        shareButtons.style.display = "flex";
+}
 
-        setTimeout(() => {
-          wisdomBox.scrollIntoView({ behavior: "smooth", block: "center" });
-        }, 100);
-      }, 200);
-    }
+function askMaya(){
 
-    async function shareWisdom() {
-      if (!currentWisdom) {
-        setNote("Ask Maya first.");
-        return;
-      }
+if(wisdomIndex>=shuffledWisdom.length){
+shuffleWisdom();
+}
 
-     async function shareWisdom() {
+const random=shuffledWisdom[wisdomIndex];
+wisdomIndex++;
 
-      if (!currentWisdom) {
-        setNote("Ask Maya first.");
-        return;
-      }
-    
-      const message = `${currentWisdom} — Maya 🐾`;
-    
-      if (navigator.share) {
-        try {
-          await navigator.share({
-            title: "Maya's Wisdom",
-            text: message
-          });
-        } catch (err) {}
-      } else {
-        try {
-          await navigator.clipboard.writeText(message);
-          setNote("Wisdom copied.");
-        } catch (err) {
-          setNote("Could not copy the wisdom.");
-        }
-      }
-    }
-  </script>
+currentWisdom=`${random.line}\n\n${random.reflection}`;
+
+const wisdomBox=document.getElementById("wisdom");
+const shareButtons=document.getElementById("shareButtons");
+
+wisdomBox.style.opacity=0;
+shareButtons.style.display="none";
+
+setTimeout(()=>{
+
+wisdomBox.innerHTML=`
+<div class="maya-line">${random.line}</div>
+<div class="maya-reflection">${random.reflection}</div>
+<div class="maya-signoff">— Maya 🐾</div>
+`;
+
+wisdomBox.style.opacity=1;
+shareButtons.style.display="flex";
+
+setTimeout(()=>{
+wisdomBox.scrollIntoView({behavior:"smooth",block:"center"});
+},100);
+
+},200);
+
+}
+
+async function shareWisdom(){
+
+if(!currentWisdom){
+setNote("Ask Maya first.");
+return;
+}
+
+const message=`${currentWisdom}\n\n— Maya 🐾`;
+
+if(navigator.share){
+try{
+await navigator.share({
+title:"Maya's Wisdom",
+text:message
+});
+}catch(err){}
+}else{
+try{
+await navigator.clipboard.writeText(message);
+setNote("Wisdom copied.");
+}catch(err){
+setNote("Could not copy the wisdom.");
+}
+}
+
+}
+
+</script>
 
 </body>
 </html>
