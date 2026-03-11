@@ -491,20 +491,25 @@
         return;
       }
 
-      const message = `${currentWisdom} — Maya 🐾`;
+     async function shareWisdom() {
 
+      if (!currentWisdom) {
+        setNote("Ask Maya first.");
+        return;
+      }
+    
+      const message = `${currentWisdom} — Maya 🐾`;
+    
       if (navigator.share) {
         try {
           await navigator.share({
-            title: "Ask Maya",
-            text: message,
-            url: window.location.href
+            title: "Maya's Wisdom",
+            text: message
           });
-        } catch (err) {
-        }
+        } catch (err) {}
       } else {
         try {
-          await navigator.clipboard.writeText(`${message} ${window.location.href}`);
+          await navigator.clipboard.writeText(message);
           setNote("Wisdom copied.");
         } catch (err) {
           setNote("Could not copy the wisdom.");
